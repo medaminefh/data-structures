@@ -1,4 +1,4 @@
-class Stack:
+class Queue:
     def __init__(self):
         self.items = []
 
@@ -15,8 +15,8 @@ class Stack:
         if self.is_empty():
             print("There is no element to remove")
             return
-        return self.items.pop(0)
+        return self.items.pop()
 
     # print the stack
-    def print_stack(self):
+    def print_queue(self):
         print(self.items)
