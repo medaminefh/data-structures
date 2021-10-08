@@ -27,7 +27,7 @@ class Stack {
   }
 
   // output element
-  print_queue() {
+  print_stack() {
     console.log(this.items);
   }
 }
