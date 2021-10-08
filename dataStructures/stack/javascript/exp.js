@@ -7,9 +7,9 @@ s.push(2);
 s.push(3);
 s.push(4);
 
-s.print_queue();
+s.print_stack();
 
 s.pop();
 s.pop();
 
-s.print_queue();
+s.print_stack();
