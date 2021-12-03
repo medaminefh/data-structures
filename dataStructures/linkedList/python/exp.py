@@ -3,10 +3,17 @@ from linkedList import LinkedList
 l = LinkedList()
 
 l.add_at_front(5)
-l.add_at_end(6)
-l.add_at_front(7)
-l.add_at_end(4)
+l.add_at_front(6)
+l.insert(30, 0)
+l.add_at_end(25)
+l.insert(100, 1)
+l.add_at_front(8)
+l.add_at_end(22)
+l.add_at_front(81)
+l.insert(-25, 4)
 
-l.print_list()
 
+print(l.size())
+print(l)
 print(l.get_Last_node())
+print(l.search(25))
