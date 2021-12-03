@@ -115,3 +115,31 @@ class LinkedList:
 
             new_Node.next = current.next
             current.next = new_Node
+
+    def remove(self, data):
+        """
+        Remove a Node in a Linked list
+        """
+        current = self.head
+        previous = None
+        found = False
+
+        while current and not found:
+            if current.data is data and current is self.head:
+                found = True
+                self.head = current.next
+
+            elif current.data is self.get_Last_node().data:
+                found = True
+                previous.next = current.next
+                self.tail = previous
+
+            elif current.data is data:
+                found = True
+                previous.next = current.next
+
+            else:
+                previous = current
+                current = current.next
+
+        return current
