@@ -1,37 +1,117 @@
 class Node:
-    def __init__(self, data, next):
+    def __init__(self, data):
         self.data = data
-        self.next = next
+        self.next = None
+
+    def __repr__(self) -> str:
+        return f"<Node data: {self.data}>"
 
 
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
+
+    def __repr__(self):
+        """
+        Return a meaningfull status of the list
+        """
+        nodes = []
+        current = self.head
+
+        while current:
+            if current is self.head:
+                nodes.append(f"[Head : {current.data}] => ")
+
+            elif current.next is None:
+                nodes.append(f"[Tail : {current.data}]")
+
+            else:
+                nodes.append(f"[{current.data}] => ")
+
+            current = current.next
+
+        return "".join(nodes)
 
     def add_at_front(self, data):
-        self.head = Node(data, self.head)
+        """
+        Add a Node at the front of the list
+        """
+        new_Node = Node(data)
+        new_Node.next = self.head
+        self.head = new_Node
+
+        if int(self.size()) == 1:
+            self.tail = self.head
 
     def add_at_end(self, data):
-        if not self.head:
-            self.head = Node(data, None)
-            return
-
-        curr = self.head
-
-        while curr.next:
-            curr = curr.next
-        curr.next = Node(data, None)
+        """
+        Add a Node at the end of the list
+        """
+        last_node = Node(data)
+        self.tail.next = last_node
+        self.tail = last_node
 
     def get_Last_node(self):
-        n = self.head
+        """
+        Get the last Node in the list
+        """
+        return self.tail
 
-        while(n.next != None):
-            n = n.next
-        return n.data
+    def size(self):
+        """
+        Get The size of the list
+        """
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
 
-    def print_list(self):
-        n = self.head
-        while n != None:
-            print(n.data, end=" => ")
-            n = n.next
-        print()
+        return f"{count}"
+
+    def search(self, data):
+        """
+        Search for the first occurence of the data in the linked list
+        """
+
+        current = self.head
+
+        if current.data == data:
+            return current
+
+        elif self.tail.data == data:
+            return self.tail
+
+        else:
+            while current:
+                if current.data == data:
+                    return current
+                else:
+                    current = current.next
+            return None
+
+    def insert(self, data, index):
+        """
+        Insert a Node at any position in the linked list
+        """
+
+        # if the index is 0 then we will add the new Node at the front
+        if index == 0:
+            self.add_at_front(data)
+
+        # We will add the new Node at the end
+        elif index == int(self.size()) - 1:
+            self.add_at_end(data)
+
+        else:
+            new_Node = Node(data)
+            current = self.head
+            position = index
+
+            while position > 1:
+                current = current.next
+                position -= 1
+
+            new_Node.next = current.next
+            current.next = new_Node
