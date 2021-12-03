@@ -11,6 +11,9 @@ l.add_at_front(8)
 l.add_at_end(22)
 l.add_at_front(81)
 l.insert(-25, 4)
+l.remove(-25)
+l.remove(81)
+l.remove(22)
 
 
 print(l.size())
