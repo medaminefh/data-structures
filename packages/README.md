@@ -10,6 +10,6 @@
 
 ![structure of a package](https://www.includehelp.com/python/images/python-packages-example.jpg)
 
-**Note:** A directory must contain a file named `__init__.py` in order for Python to consider it as a package. This file can be left empty but we generally place the initialization code for that package in this file.
+## Note:
 
-![difference between a dir and a package in python](https://pythongeeks.org/wp-content/uploads/2021/12/packages-vs-directories.webp)
+### A directory must contain a file named `__init__.py` in order for Python to consider it as a package. This file can be left empty but we generally place the initialization code for that package in this file.
